@@ -56,11 +56,12 @@ const setActiveLink = () => {
   });
 };
 
-// Tonearm scroll progress + hero parallax, batched into one frame per scroll.
+// Scroll progress (top bar + tonearm) and hero parallax, batched into one frame per scroll.
 // The arm rests off the record, drops on just after the title lands, then tracks toward the label.
 const ARM_REST = -24; // degrees: needle hovering beside the record
 const ARM_SWEEP = 28; // degrees: outer groove to inner groove
 const arm = document.getElementById('tonearmArm');
+const progressBar = document.querySelector('.scroll-progress');
 let armDropped = reduceMotion;
 if (arm && !reduceMotion) {
   setTimeout(() => {
@@ -78,15 +79,22 @@ const updateOnScroll = () => {
   navbar.classList.toggle('scrolled', window.scrollY > 10);
   setActiveLink();
   const max = document.documentElement.scrollHeight - window.innerHeight;
-  if (arm) {
-    const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
-    arm.style.transform = `rotate(${armDropped ? progress * ARM_SWEEP : ARM_REST}deg)`;
-  }
+  const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+  if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
+  if (arm) arm.style.transform = `rotate(${armDropped ? progress * ARM_SWEEP : ARM_REST}deg)`;
   if (!reduceMotion && window.scrollY < window.innerHeight * 1.5) {
     if (heroArt) heroArt.style.translate = `0 ${window.scrollY * 0.08}px`;
     if (scrollCue) scrollCue.style.opacity = Math.max(0, 0.75 - window.scrollY / 260);
   }
 };
+
+// The tonearm doubles as a back-to-top button
+const toTop = document.getElementById('toTop');
+if (toTop) {
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+}
 
 window.addEventListener('scroll', () => {
   if (scrollTicking) return;

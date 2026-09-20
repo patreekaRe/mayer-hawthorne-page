@@ -57,7 +57,20 @@ a:hover {
   padding: 0 24px;
 }
 
-/* ---------- Scroll progress: tonearm ---------- */
+/* ---------- Scroll progress bar ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mustard), var(--brick));
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 1100;
+}
+
+/* ---------- Back to top: tonearm button ---------- */
 .tonearm {
   position: fixed;
   right: 16px;
@@ -65,8 +78,60 @@ a:hover {
   width: 96px;
   aspect-ratio: 110 / 104;
   z-index: 900;
-  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
   filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s var(--ease);
+}
+
+.tonearm:hover,
+.tonearm:focus-visible {
+  transform: translateY(-4px) scale(1.08);
+}
+
+.tonearm:active {
+  transform: scale(0.96);
+}
+
+.tonearm:focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 4px;
+}
+
+.tonearm svg {
+  display: block;
+  pointer-events: none;
+}
+
+.tonearm-label {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  margin-right: 0.6rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  translate: 8px -50%;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease), translate 0.25s var(--ease);
+}
+
+.tonearm:hover .tonearm-label,
+.tonearm:focus-visible .tonearm-label {
+  opacity: 1;
+  translate: 0 -50%;
 }
 
 .tonearm .disc {
@@ -1083,8 +1148,15 @@ footer p {
     animation: none;
   }
 
-  .tonearm .arm {
+  .tonearm .arm,
+  .tonearm,
+  .tonearm-label {
     transition: none;
+  }
+
+  .tonearm:hover,
+  .tonearm:focus-visible {
+    transform: none;
   }
 
   #title .word,

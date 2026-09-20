@@ -18,9 +18,12 @@
   </head>
 
   <body>
-    <!-- Scroll progress: a tonearm that drops onto the record and tracks toward the label -->
-    <div class="tonearm" aria-hidden="true">
-      <svg viewBox="0 0 110 104" width="100%" height="100%" focusable="false">
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Back to top: a tonearm that drops onto the record and tracks toward the label as you scroll -->
+    <button type="button" class="tonearm" id="toTop" aria-label="Back to top">
+      <span class="tonearm-label" aria-hidden="true">Back to top</span>
+      <svg viewBox="0 0 110 104" width="100%" height="100%" focusable="false" aria-hidden="true">
         <g class="disc">
           <circle cx="42" cy="58" r="38" fill="#0c0c0c" />
           <circle cx="42" cy="58" r="33" fill="none" stroke="#262626" />
@@ -36,7 +39,7 @@
         </g>
         <circle cx="96" cy="6" r="7" fill="#2b1b14" stroke="#e2a41f" stroke-width="2" />
       </svg>
-    </div>
+    </button>
 
     <nav id="navbar" aria-label="Main">
       <a class="nav-brand" href="#top">M<span>H</span></a>
