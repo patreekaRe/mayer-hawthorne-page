@@ -4,178 +4,436 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mayer Hawthorne Tribute</title>
+    <meta
+      name="description"
+      content="A tribute to Mayer Hawthorne, the Michigan-born singer, songwriter and producer bringing classic soul into the modern era."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=Shrikhand&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <nav>
-      <ul>
+    <!-- Scroll progress: a tonearm that drops onto the record and tracks toward the label -->
+    <div class="tonearm" aria-hidden="true">
+      <svg viewBox="0 0 110 104" width="100%" height="100%" focusable="false">
+        <g class="disc">
+          <circle cx="42" cy="58" r="38" fill="#0c0c0c" />
+          <circle cx="42" cy="58" r="33" fill="none" stroke="#262626" />
+          <circle cx="42" cy="58" r="27" fill="none" stroke="#262626" />
+          <circle cx="42" cy="58" r="21" fill="none" stroke="#262626" />
+          <path d="M42 58 L42 20 A38 38 0 0 1 72 34 Z" fill="#fff" opacity="0.07" />
+          <circle cx="42" cy="58" r="11" fill="#e2a41f" />
+          <circle cx="42" cy="58" r="1.8" fill="#2b1b14" />
+        </g>
+        <g class="arm" id="tonearmArm">
+          <line x1="96" y1="6" x2="77.5" y2="63.1" stroke="#d8d2c4" stroke-width="3" stroke-linecap="round" />
+          <circle cx="77.5" cy="63.1" r="3.6" fill="#e2a41f" stroke="#2b1b14" stroke-width="1" />
+        </g>
+        <circle cx="96" cy="6" r="7" fill="#2b1b14" stroke="#e2a41f" stroke-width="2" />
+      </svg>
+    </div>
+
+    <nav id="navbar" aria-label="Main">
+      <a class="nav-brand" href="#top">M<span>H</span></a>
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-expanded="false"
+        aria-controls="navLinks"
+        aria-label="Toggle menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="navLinks">
         <li><a href="#bio">Bio</a></li>
         <li><a href="#contributions">Music</a></li>
+        <li><a href="#discography">Discography</a></li>
         <li><a href="#style">Style</a></li>
+        <li><a href="#videos">Videos</a></li>
         <li><a href="#references">Refs</a></li>
       </ul>
     </nav>
 
-    <header>
-      <h1 id="title">Mayer Hawthorne</h1>
-      <p>Modern soul with a vintage touch</p>
-    </header>
-
     <main id="main">
-      <div id="img-div">
-        <img
-          id="image"
-          src="https://npr.brightspotcdn.com/dims4/default/8d6d001/2147483647/strip/true/crop/2000x1125+0+0/resize/880x495!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fwp-content%2Fuploads%2FMayer-H-5RT.jpg"
-        />
+      <section class="hero" id="top">
+        <div class="hero-inner wrap">
+          <div class="hero-copy">
+            <p class="eyebrow">A tribute &middot; Ann Arbor to Los Angeles</p>
+            <h1 id="title">Mayer Hawthorne</h1>
+            <p class="tagline">Modern soul with a vintage touch</p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#discography">Hear the records</a>
+              <a class="btn btn-ghost" href="#bio">Read the story</a>
+            </div>
+          </div>
+
+          <div class="hero-art">
+            <div class="vinyl" aria-hidden="true"></div>
+            <div id="img-div">
+              <img
+                id="image"
+                src="images/hero-blue-stage.jpg"
+                width="1280"
+                height="720"
+                alt="Mayer Hawthorne singing into a microphone on a stage washed in deep blue light, wearing a red jacket over a white shirt and tinted glasses."
+              />
+              <p id="img-caption">
+                Live in 2021 &middot; Photo by erintheredmc,
+                <a
+                  href="https://creativecommons.org/licenses/by/2.0"
+                  target="_blank"
+                  rel="noopener"
+                  >CC BY 2.0</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#bio" aria-label="Scroll to biography">
+          <span>Scroll</span>
+        </a>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Soul &#9679; Funk &#9679; Motown &#9679; Ann Arbor &#9679; Stones Throw &#9679; Tuxedo &#9679; Los Angeles &#9679;</span>
+          <span>Soul &#9679; Funk &#9679; Motown &#9679; Ann Arbor &#9679; Stones Throw &#9679; Tuxedo &#9679; Los Angeles &#9679;</span>
+        </div>
       </div>
 
       <article id="tribute-info">
-        <section id="bio">
-          <h2>Biography</h2>
-          <img
-            class="section-image"
-            src="https://folknrock.com/wp-content/uploads/2024/02/MAJESTIC_MAYERHAWTHORNE_02022024_BRZOSKA-16.webp"
-          />
-          <p>
-            Mayer Hawthorne, born Andrew Mayer Cohen in Ann Arbor, Michigan, is
-            a singer, songwriter, and producer known for bringing classic soul
-            music into a modern era. Growing up with a deep appreciation for
-            vintage sounds, he was influenced by Motown, funk, and old-school
-            R&B, which would later shape his signature style.
-          </p>
-          <p>
-            Before stepping into the spotlight as a vocalist, Hawthorne started
-            out as a producer and DJ. His breakthrough came when he began
-            recording his own songs using live instrumentation and
-            analog-inspired techniques, creating music that felt warm,
-            nostalgic, and authentic. This approach helped him stand out in a
-            music industry dominated by digital production.
-          </p>
-          <p>
-            Over time, Mayer Hawthorne built a reputation for blending smooth
-            vocals with polished production, bridging the gap between past and
-            present. Through both his solo work and collaborations like Tuxedo,
-            he has helped introduce a new generation of listeners to the groove,
-            style, and energy of classic soul music.
-          </p>
-        </section>
-
-        <section id="contributions">
-          <h2>Music & Contributions</h2>
-          <img
-            class="section-image"
-            src="https://miro.medium.com/v2/resize:fit:1400/1*w2MnlfT6NsSAbq2lZjjPlw.jpeg"
-          />
-          <p>
-            Mayer Hawthorne, born Andrew Mayer Cohen in Ann Arbor, Michigan, is
-            a singer, songwriter, and producer known for bringing classic soul
-            music into a modern era. Growing up with a deep appreciation for
-            vintage sounds, he was influenced by Motown, funk, and old-school
-            R&B, which would later shape his signature style.
-          </p>
-          <p>
-            Before stepping into the spotlight as a vocalist, Hawthorne started
-            out as a producer and DJ. His breakthrough came when he began
-            recording his own songs using live instrumentation and
-            analog-inspired techniques, creating music that felt warm,
-            nostalgic, and authentic. This approach helped him stand out in a
-            music industry dominated by digital production.
-          </p>
-          <p>
-            Over time, Mayer Hawthorne built a reputation for blending smooth
-            vocals with polished production, bridging the gap between past and
-            present. Through both his solo work and collaborations like Tuxedo,
-            he has helped introduce a new generation of listeners to the groove,
-            style, and energy of classic soul music.
-          </p>
-        </section>
-
-        <section id="style">
-          <h2>Style & Image</h2>
-          <img
-            class="section-image"
-            src="https://mayerhawthorne.com/wp-content/uploads/2023/08/home-bg-scaled.jpg"
-          />
-          <p>
-            Mayer Hawthorne’s style and image are a major part of his identity
-            as an artist. He presents himself with a polished, vintage-inspired
-            look that reflects the sound of his music. From tailored suits to
-            retro color palettes, his visual aesthetic draws heavily from
-            classic soul and funk eras, creating a cohesive experience for
-            listeners.
-          </p>
-          <p>
-            What makes his image stand out is how closely it matches his music.
-            The smooth, refined visuals mirror the tone of his songs, making his
-            brand feel intentional and authentic. This consistency helps
-            strengthen his connection with his audience, as fans are not only
-            drawn to the sound, but also to the overall vibe he creates.
-          </p>
-          <p>
-            By combining modern production with a classic visual style, Mayer
-            Hawthorne has built a recognizable identity that blends past and
-            present. His attention to both sound and appearance shows how
-            important visual storytelling can be in shaping an artist’s impact.
-          </p>
-        </section>
-
-        <section id="videos">
-          <h2>Music Videos</h2>
-          <div class="video-container">
-            <iframe
-              src="https://www.youtube.com/embed/gmfcYli6vV4"
-              title="Mayer Hawthorne - The Walk"
-              frameborder="0"
-              allowfullscreen
-            >
-            </iframe>
-
-            <iframe
-              src="https://www.youtube.com/embed/v2QRnutVa84?si=PdlEcG3uBfE5FVxB"
-              title="Mayer Hawthorne - Henny & Gingerale"
-              frameborder="0"
-              allowfullscreen
-            >
-            </iframe>
+        <section id="bio" class="band band-paper">
+          <div class="wrap split">
+            <figure class="photo reveal-me">
+              <img
+                src="images/bio-black-suit.jpg"
+                width="960"
+                height="641"
+                loading="lazy"
+                alt="Mayer Hawthorne in a sparkling dark suit and bow tie, one hand raised, singing into a microphone in a haze of blue stage light."
+              />
+              <figcaption>
+                Photo by Kaiography,
+                <a
+                  href="https://creativecommons.org/licenses/by-sa/4.0"
+                  target="_blank"
+                  rel="noopener"
+                  >CC BY-SA 4.0</a
+                >
+              </figcaption>
+            </figure>
+            <div class="text">
+              <p class="kicker">Chapter one</p>
+              <h2>Biography</h2>
+              <p>
+                Mayer Hawthorne, born Andrew Mayer Cohen in Ann Arbor, Michigan,
+                is a singer, songwriter, and producer known for bringing classic
+                soul music into a modern era. Growing up with a deep
+                appreciation for vintage sounds, he was influenced by Motown,
+                funk, and old-school R&amp;B, which would later shape his
+                signature style.
+              </p>
+              <p>
+                Before stepping into the spotlight as a vocalist, Hawthorne
+                started out as a producer and DJ. His breakthrough came when he
+                began recording his own songs using live instrumentation and
+                analog-inspired techniques, creating music that felt warm,
+                nostalgic, and authentic. This approach helped him stand out in
+                a music industry dominated by digital production.
+              </p>
+              <p>
+                Over time, Mayer Hawthorne built a reputation for blending
+                smooth vocals with polished production, bridging the gap between
+                past and present. Through both his solo work and collaborations
+                like Tuxedo, he has helped introduce a new generation of
+                listeners to the groove, style, and energy of classic soul
+                music.
+              </p>
+            </div>
           </div>
         </section>
 
-        <section id="references">
-          <h2>References</h2>
+        <section id="contributions" class="band band-dark">
+          <div class="wrap split split-flip">
+            <figure class="photo photo-tall reveal-me">
+              <img
+                src="images/music-dj.jpg"
+                width="960"
+                height="1438"
+                loading="lazy"
+                alt="Mayer Hawthorne DJing at a turntable in sunglasses and a dark shirt embroidered with red roses, with a glowing stained-glass sign behind him."
+              />
+              <figcaption>
+                Photo by Kaiography,
+                <a
+                  href="https://creativecommons.org/licenses/by-sa/4.0"
+                  target="_blank"
+                  rel="noopener"
+                  >CC BY-SA 4.0</a
+                >
+              </figcaption>
+            </figure>
+            <div class="text">
+              <p class="kicker">Side A</p>
+              <h2>Music &amp; Contributions</h2>
+              <p>
+                Before the spotlight, Hawthorne was a Michigan DJ who came up as
+                DJ Haircut in the group Athletic Mic League. He moved to Los
+                Angeles in 2005 and signed with Stones Throw Records, which put
+                out his early singles and his first album, A Strange
+                Arrangement, in 2009.
+              </p>
+              <p>
+                His solo albums run from A Strange Arrangement (2009) through
+                How Do You Do (2011), Where Does This Door Go (2013), Man About
+                Town (2016) and Rare Changes (2020) to For All Time (2023). How
+                Do You Do earned a Grammy nomination for Best Boxed or Special
+                Limited Edition Package, and Where Does This Door Go brought in
+                production from Pharrell Williams and others.
+              </p>
+              <p>
+                He also records as Tuxedo, a duo with producer Jake One, whose
+                albums include Tuxedo (2015), Tuxedo II (2017), Tuxedo III
+                (2019) and Tuxedo IV (2024).
+              </p>
+              <p>
+                His songs have also reached the screen, appearing in shows such
+                as Ugly Betty, Masters of Sex, Dear White People and Fringe, and
+                he has toured with artists including Bruno Mars and Erykah
+                Badu.
+              </p>
+            </div>
+          </div>
+        </section>
 
-          <p>
-            <a
-              id="tribute-link"
-              href="https://mayerhawthorne.com/bio/"
-              target="_blank"
-            >
-              Official Bio
-            </a>
-          </p>
+        <section id="discography" class="band band-cream">
+          <div class="wrap">
+            <div class="section-head">
+              <p class="kicker">Spin it</p>
+              <h2>Discography</h2>
+              <p class="lede">
+                Six solo albums and a side project, from the first single to
+                the latest record. Press play, then dig through the crate.
+              </p>
+            </div>
 
-          <p>
-            <a
-              href="https://www.stonesthrow.com/artist/mayerhawthorne/"
-              target="_blank"
-            >
-              Stones Throw
-            </a>
-          </p>
+            <div class="spotify reveal-me">
+              <iframe
+                title="Mayer Hawthorne on Spotify"
+                src="https://open.spotify.com/embed/artist/4d53BMrRlQkrQMz5d59f2O"
+                width="100%"
+                height="352"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+            </div>
 
-          <p>
-            <a
-              href="https://en.wikipedia.org/wiki/Mayer_Hawthorne"
-              target="_blank"
-            >
-              Wikipedia
-            </a>
-          </p>
+            <h3 class="crate-title">Solo albums</h3>
+            <ol class="crate">
+              <li class="album a1"><span class="year">2009</span><span class="name">A Strange Arrangement</span></li>
+              <li class="album a2"><span class="year">2011</span><span class="name">How Do You Do</span></li>
+              <li class="album a3"><span class="year">2013</span><span class="name">Where Does This Door Go</span></li>
+              <li class="album a4"><span class="year">2016</span><span class="name">Man About Town</span></li>
+              <li class="album a5"><span class="year">2020</span><span class="name">Rare Changes</span></li>
+              <li class="album a6"><span class="year">2023</span><span class="name">For All Time</span></li>
+            </ol>
+
+            <h3 class="crate-title">With Jake One as Tuxedo</h3>
+            <ol class="crate crate-small">
+              <li class="album t1"><span class="year">2015</span><span class="name">Tuxedo</span></li>
+              <li class="album t2"><span class="year">2017</span><span class="name">Tuxedo II</span></li>
+              <li class="album t3"><span class="year">2019</span><span class="name">Tuxedo III</span></li>
+              <li class="album t4"><span class="year">2024</span><span class="name">Tuxedo IV</span></li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="style" class="band band-paper">
+          <div class="wrap">
+            <div class="section-head">
+              <p class="kicker">The look</p>
+              <h2>Style &amp; Image</h2>
+            </div>
+            <div class="style-text">
+              <p>
+                Mayer Hawthorne’s style and image are a major part of his
+                identity as an artist. He presents himself with a polished,
+                vintage-inspired look that reflects the sound of his music. From
+                tailored suits to retro color palettes, his visual aesthetic
+                draws heavily from classic soul and funk eras, creating a
+                cohesive experience for listeners.
+              </p>
+              <p>
+                What makes his image stand out is how closely it matches his
+                music. The smooth, refined visuals mirror the tone of his songs,
+                making his brand feel intentional and authentic. This
+                consistency helps strengthen his connection with his audience,
+                as fans are not only drawn to the sound, but also to the overall
+                vibe he creates.
+              </p>
+              <p>
+                By combining modern production with a classic visual style,
+                Mayer Hawthorne has built a recognizable identity that blends
+                past and present. His attention to both sound and appearance
+                shows how important visual storytelling can be in shaping an
+                artist’s impact.
+              </p>
+            </div>
+          </div>
+
+          <div class="lookbook" aria-label="Lookbook">
+            <div class="lookbook-bar wrap">
+              <p class="kicker">Lookbook &middot; 2009 to 2021</p>
+              <div class="lookbook-btns">
+                <button type="button" id="lookPrev" aria-label="Previous photos">&larr;</button>
+                <button type="button" id="lookNext" aria-label="Next photos">&rarr;</button>
+              </div>
+            </div>
+            <ul class="lookbook-track" id="lookTrack" tabindex="0" aria-label="Scrolling photo lookbook">
+              <li class="look">
+                <img
+                  src="images/look-polaroid-2009.jpg"
+                  width="500"
+                  height="606"
+                  loading="lazy"
+                  style="--pos: 50% 35%"
+                  alt="A 2009 Polaroid-style snapshot of Mayer Hawthorne in a light suit, singing at a microphone with a band behind him on a small stage."
+                />
+                <p><b>01</b> 2009 &middot; The early days<small>Photo by Slava, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></small></p>
+              </li>
+              <li class="look">
+                <img
+                  src="images/look-red-suit.jpg"
+                  width="960"
+                  height="640"
+                  loading="lazy"
+                  style="--pos: 62% 40%"
+                  alt="Close-up of Mayer Hawthorne in a red suit jacket and dark tie, singing into a microphone under blue light."
+                />
+                <p><b>02</b> Red suit, blue light<small>Photo by Julio Enriquez, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></small></p>
+              </li>
+              <li class="look">
+                <img
+                  src="images/look-pink-jacket.jpg"
+                  width="960"
+                  height="640"
+                  loading="lazy"
+                  style="--pos: 36% 40%"
+                  alt="Mayer Hawthorne in a red jacket with black lapels and a bow tie, singing at a microphone stand while holding a tambourine, in purple light."
+                />
+                <p><b>03</b> 2016 &middot; Bow tie &amp; tambourine<small>Photo by Kaiography, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></small></p>
+              </li>
+              <li class="look">
+                <img
+                  src="images/look-red-cardigan.jpg"
+                  width="500"
+                  height="889"
+                  loading="lazy"
+                  style="--pos: 50% 22%"
+                  alt="Mayer Hawthorne in a red cardigan with white trim and black-framed glasses, singing under purple stage lights with a bass player behind him."
+                />
+                <p><b>04</b> 2021 &middot; Cardigan season<small>Photo by erintheredmc, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></small></p>
+              </li>
+              <li class="look">
+                <img
+                  src="images/look-wide-stage.jpg"
+                  width="960"
+                  height="540"
+                  loading="lazy"
+                  style="--pos: 68% 50%"
+                  alt="Wide view of a stage with Mayer Hawthorne in a red jacket raising a hand, his band in white beside him, potted plants and pink and teal lights."
+                />
+                <p><b>05</b> The whole band<small>Photo by erintheredmc, <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a></small></p>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="videos" class="band band-dark">
+          <div class="wrap">
+            <div class="section-head">
+              <p class="kicker">On screen</p>
+              <h2>Music Videos</h2>
+            </div>
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/gmfcYli6vV4"
+                title="Mayer Hawthorne - The Walk"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+              <iframe
+                src="https://www.youtube.com/embed/v2QRnutVa84?si=PdlEcG3uBfE5FVxB"
+                title="Mayer Hawthorne - Henny & Gingerale"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </section>
+
+        <section id="references" class="band band-cream">
+          <div class="wrap">
+            <div class="section-head">
+              <p class="kicker">Liner notes</p>
+              <h2>References</h2>
+            </div>
+            <ul class="refs">
+              <li>
+                <a
+                  id="tribute-link"
+                  href="https://mayerhawthorne.com/bio/"
+                  target="_blank"
+                  >Official Bio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.stonesthrow.com/artist/mayerhawthorne/"
+                  target="_blank"
+                  rel="noopener"
+                  >Stones Throw</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Mayer_Hawthorne"
+                  target="_blank"
+                  rel="noopener"
+                  >Wikipedia</a
+                >
+              </li>
+            </ul>
+
+            <div class="credits" id="credits">
+              <h3>Photo credits</h3>
+              <p>
+                Photographs are from Wikimedia Commons and used under the
+                licenses shown. Each photo credit is also shown next to its
+                image.
+              </p>
+              <ul>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Mayer_Hawthorne_-_Fine_Line_-_11-19-2021_-_image_28.jpg" target="_blank" rel="noopener">Hero image</a> &mdash; erintheredmc, CC BY 2.0</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Mayer_Hawthorne_at_The_Natural_History_Museum_in_Los_Angeles_on_6-1-2018.jpg" target="_blank" rel="noopener">Biography</a> &mdash; Kaiography, CC BY-SA 4.0</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Mayer_Hawthorne_performing_at_The_Twin_Peaks_Pop-Up_Shop_in_Los_Angeles_on_1-28-2018.jpg" target="_blank" rel="noopener">Music &amp; Contributions</a> &mdash; Kaiography, CC BY-SA 4.0</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Mayer_Hawthorne_2009.jpg" target="_blank" rel="noopener">Lookbook 01</a> &mdash; Slava, CC BY 2.0</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Mayer_Hawthorne.jpg" target="_blank" rel="noopener">Lookbook 02</a> &mdash; Julio Enriquez, CC BY 2.0</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Mayer_Hawthorne_and_The_County_performing_at_The_Teragram_Ballroom_in_Los_Angeles_on_1-18-2016.jpg" target="_blank" rel="noopener">Lookbook 03</a> &mdash; Kaiography, CC BY-SA 4.0</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Mayer_Hawthorne_-_Fine_Line_-_11-19-2021_-_image_15.jpg" target="_blank" rel="noopener">Lookbook 04</a> &mdash; erintheredmc, CC BY 2.0</li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Mayer_Hawthorne_-_Fine_Line_-_11-19-2021_-_image_3.jpg" target="_blank" rel="noopener">Lookbook 05</a> &mdash; erintheredmc, CC BY 2.0</li>
+              </ul>
+              <p class="small">
+                Photos were resized for the web. Licenses:
+                <a href="https://creativecommons.org/licenses/by/2.0" target="_blank" rel="noopener">CC BY 2.0</a>,
+                <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+              </p>
+            </div>
+          </div>
         </section>
       </article>
     </main>
@@ -183,5 +441,7 @@
     <footer>
       <p>Tribute Project<br />Patrick Rosal<br />COSW20 2026</p>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
