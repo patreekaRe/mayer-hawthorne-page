@@ -174,3 +174,12 @@ if (track) {
     track.style.scrollSnapType = '';
   });
 }
+
+// Opened from the walkable studio? Send the back links to the computer in the room, not the homepage
+if (new URLSearchParams(window.location.search).get('from') === 'room') {
+  const roomUrl = 'https://patreekare.github.io/world.html?open=coursework&project=musician';
+  document.querySelectorAll('.nav-back a, .footer-back a').forEach((link) => {
+    link.href = roomUrl;
+    link.innerHTML = link.closest('.nav-back') ? '&larr; Studio' : '&larr; Back to the studio';
+  });
+}
